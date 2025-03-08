@@ -1,4 +1,4 @@
-import { Story, StoryDetails, StoryType } from './types';
+import { Story, StoryType } from './types';
 
 const HN_API_BASE = 'https://hacker-news.firebaseio.com/v0';
 const HN_ITEM_URL = `${HN_API_BASE}/item`;
