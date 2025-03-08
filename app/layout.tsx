@@ -1,4 +1,3 @@
-// app/layout.tsx
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
@@ -9,7 +8,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'HackerNews Reader',
-  description: 'A modern HackerNews reader built with Next.js and Tailwind CSS',
+  description: 'A modern HackerNews reader',
 }
 
 export default function RootLayout({
