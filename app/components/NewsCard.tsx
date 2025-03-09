@@ -13,7 +13,7 @@ export default function NewsCard({ story }: NewsCardProps) {
     try {
       const domain = new URL(url);
       return domain.hostname.replace('www.', '');
-    } catch (e) {
+    } catch (_) {
       return '';
     }
   };

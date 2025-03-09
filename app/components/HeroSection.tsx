@@ -18,33 +18,33 @@ export default function HeroSection() {
   const type = (searchParams.get('type') as StoryType) || 'top';
   const query = searchParams.get('query') || '';
   
-  const fetchNews = async () => {
-    setLoading(true);
-    setError(null);
-    
-    try {
-      const queryParams = new URLSearchParams();
-      
-      if (type) queryParams.set('type', type);
-      if (query) queryParams.set('query', query);
-      
-      const response = await fetch(`/api/hackernews?${queryParams.toString()}`);
-      
-      if (!response.ok) {
-        throw new Error('Failed to fetch stories');
-      }
-      
-      const data = await response.json();
-      setStories(data.stories);
-    } catch (err) {
-      console.error('Error fetching news:', err);
-      setError('Failed to load stories. Please try again later.');
-    } finally {
-      setLoading(false);
-    }
-  };
-  
   useEffect(() => {
+    const fetchNews = async () => {
+      setLoading(true);
+      setError(null);
+      
+      try {
+        const queryParams = new URLSearchParams();
+        
+        if (type) queryParams.set('type', type);
+        if (query) queryParams.set('query', query);
+        
+        const response = await fetch(`/api/hackernews?${queryParams.toString()}`);
+        
+        if (!response.ok) {
+          throw new Error('Failed to fetch stories');
+        }
+        
+        const data = await response.json();
+        setStories(data.stories);
+      } catch (err) {
+        console.error('Error fetching news:', err);
+        setError('Failed to load stories. Please try again later.');
+      } finally {
+        setLoading(false);
+      }
+    };
+    
     fetchNews();
   }, [type, query]);
   

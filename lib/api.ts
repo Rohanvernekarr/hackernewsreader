@@ -2,7 +2,7 @@ import { Story, StoryType } from './types';
 
 const HN_API_BASE = 'https://hacker-news.firebaseio.com/v0';
 const HN_ITEM_URL = `${HN_API_BASE}/item`;
-const HN_USER_URL = `${HN_API_BASE}/user`;
+
 
 export async function fetchStoryIds(type: StoryType = 'top', limit: number = 30): Promise<number[]> {
   const response = await fetch(`${HN_API_BASE}/${type}stories.json`);
